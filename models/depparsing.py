@@ -1,14 +1,25 @@
 from __future__ import absolute_import
 from pyvi import ViPosTagger, ViTokenizer
-from models.config import dep_relations, pos_tags
+from models.config import dep_relations, pos_tags, name_to_pos
 
 
 def create_pos(sentence):
     pos = ViPosTagger.postagging(ViTokenizer.tokenize(sentence))
     result = []
+    final = []
     for i in range(len(pos[0])):
         result.append((pos[0][i], pos[-1][i]))
-    return result
+    i = 0
+    while i < len(result):
+        if i < len(result) - 2 and pos_tags[result[i][-1]] == pos_tags[result[i+2][-1]] == "numeral" and pos_tags[result[i+1][-1]] == "punctuation":
+            temp = (result[i][0] + result[i+1][0] +
+                    result[i+2][0], name_to_pos["numeral"])
+            i += 3
+        else:
+            temp = result[i]
+            i += 1
+        final.append(temp)
+    return final
 
 
 def malt_parser(pos):
