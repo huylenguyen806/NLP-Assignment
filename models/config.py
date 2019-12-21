@@ -20,7 +20,7 @@ pos_tags = {
     "X": "unknown",
     "F": "punctuation",
     "ROOT": "ROOT",
-    "WH_TIME": "time"
+    "WH_TIME": "time",
 }
 
 name_to_pos = {v: k for k, v in pos_tags.items()}
@@ -33,8 +33,9 @@ dep_relations = {
     "common_noun+proper_noun": "nmod",
     "proper_noun+proper_noun": "nmod",
     "proper_noun+preposition": "case", 
-    "common_noun+numeral": "nummod",
+    "proper_noun+numeral": "time",
     "common_noun+noun_abbreviation": "nmod",
     "common_noun+pronoun": "nmod",
-    "time+verb": "wh_time"
+    "time+verb": "wh_time",
+    "preposition+numeral": "time"
 }

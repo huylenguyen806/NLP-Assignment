@@ -11,17 +11,20 @@ def nor(sen):
 def preprocess(sentence):
     sentence = nor(sentence)
     sentence = sentence.replace("bus", "buýt")
-    # if nor("từ") in sentence:
-    #     sentence = sentence.replace(nor("từ"), nor("đi từ"))
     return sentence
 
 
 def postprocess_pos(pos):
-    for i in range(len(pos)):
-        if pos[i][0].lower() == 'thời_gian':
+    i = 0
+    while i < len(pos):
+        if pos[i][0].lower() in ['thời_gian', 'bao lâu']:
             pos[i] = (pos[i][0], 'WH_TIME')
         if pos[i][0].lower() == 'đến':
             pos[i] = (pos[i][0], 'V')
+        if pos[i][0].lower() == 'lúc':
+            pos[i] = (pos[i][0] + '_' + pos[i+1][0], 'M')
+            del pos[i+1]
+        i += 1
 
     return pos
 

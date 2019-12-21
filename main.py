@@ -3,7 +3,9 @@ from __future__ import absolute_import
 import os
 from models.depparsing import create_pos, malt_parser
 from models.loaddata import load_data
-from models.logicalform import grammarical_relation, logical_form
+from models.gramrel import grammarical_relation
+from models.logicalform import logical_form
+from models.proceduralsem import procedural_semantic
 
 
 def main():
@@ -23,6 +25,10 @@ def main():
         print("Logical form: ")
         loc = logical_form(gram_rel)
         for i in loc:
+            print(i)
+        print("Procedural Sem: ")
+        proc = procedural_semantic(loc)
+        for i in proc:
             print(i)
 
 
