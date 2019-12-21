@@ -1,14 +1,39 @@
 from __future__ import absolute_import
+import unicodedata
 from pyvi import ViPosTagger, ViTokenizer
 from models.config import dep_relations, pos_tags, name_to_pos
 
 
+def nor(sen):
+    return unicodedata.normalize('NFC', sen)
+
+
+def preprocess(sentence):
+    sentence = nor(sentence)
+    sentence = sentence.replace("bus", "buýt")
+    # if nor("từ") in sentence:
+    #     sentence = sentence.replace(nor("từ"), nor("đi từ"))
+    return sentence
+
+
+def postprocess_pos(pos):
+    for i in range(len(pos)):
+        if pos[i][0].lower() == 'thời_gian':
+            pos[i] = (pos[i][0], 'WH_TIME')
+        if pos[i][0].lower() == 'đến':
+            pos[i] = (pos[i][0], 'V')
+
+    return pos
+
+
 def create_pos(sentence):
+    sentence = preprocess(sentence)
     pos = ViPosTagger.postagging(ViTokenizer.tokenize(sentence))
     result = []
     final = []
     for i in range(len(pos[0])):
         result.append((pos[0][i], pos[-1][i]))
+    result = postprocess_pos(result)
     i = 0
     while i < len(result):
         if i < len(result) - 2 and pos_tags[result[i][-1]] == pos_tags[result[i+2][-1]] == "numeral" and pos_tags[result[i+1][-1]] == "punctuation":
@@ -64,8 +89,8 @@ def malt_parser(pos):
     while beta:
         word_i = sigma[-1]
         word_j = beta[0]
-        rule_left = get_rule(word_j, word_i)
         rule_right = get_rule(word_i, word_j)
+        rule_left = get_rule(word_j, word_i)
         is_any_rule_in_alpha = is_any_rules_of(word_i, alpha)
 
         if word_i != "ROOT" and not is_any_rule_in_alpha and rule_left:

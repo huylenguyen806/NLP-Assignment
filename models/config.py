@@ -19,18 +19,22 @@ pos_tags = {
     "V": "verb",
     "X": "unknown",
     "F": "punctuation",
-    "ROOT": "ROOT"
+    "ROOT": "ROOT",
+    "WH_TIME": "time"
 }
 
 name_to_pos = {v: k for k, v in pos_tags.items()}
 
 dep_relations = {
     "common_noun+adjective": "amod",
-    "common_noun+verb": "nsubj",
-    "verb+common_noun": "dobj",
+    "common_noun+verb": "dobj",
+    "verb+proper_noun": "dobj",
+    "verb+common_noun": "nsubj",
     "common_noun+proper_noun": "nmod",
-    "preposition+common_noun": "pobj",
+    "proper_noun+proper_noun": "nmod",
+    "proper_noun+preposition": "case", 
     "common_noun+numeral": "nummod",
     "common_noun+noun_abbreviation": "nmod",
-    "common_noun+pronoun": "nmod"
+    "common_noun+pronoun": "nmod",
+    "time+verb": "wh_time"
 }
