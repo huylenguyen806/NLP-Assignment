@@ -3,7 +3,7 @@ from __future__ import absolute_import
 import os
 from models.depparsing import create_pos, malt_parser
 from models.loaddata import load_data
-from models.logicalform import grammarical_relation
+from models.logicalform import grammarical_relation, logical_form
 
 
 def main():
@@ -19,6 +19,10 @@ def main():
         print("Grammatical Rel: ")
         gram_rel = grammarical_relation(alpha)
         for i in gram_rel:
+            print(i)
+        print("Logical form: ")
+        loc = logical_form(gram_rel)
+        for i in loc:
             print(i)
 
 

@@ -48,6 +48,21 @@ def grammarical_relation(alpha):
     return gram_rel
 
 
-# def logical_form(gram_rel):
-#     logical_form = []
-#     for gram in gram_rel:
+def logical_form(gram_rel):
+    logical_form = []
+    for gram in gram_rel:
+        if gram[0] == 'PRED':
+            logical_form.append((gram[1],))
+        elif gram[0] == 'LSUBJ':
+            if len(gram) > 2:
+                logical_form.append(('AGENT', gram[1], gram[2]))
+            else:
+                logical_form.append(('AGENT', gram[1]))
+        elif gram[0] == 'LOBJ':
+            if len(gram) > 2:
+                logical_form.append(('THEME', gram[1], gram[2]))
+            else:
+                logical_form.append(('THEME', gram[1]))
+        elif gram[0] in ['FROM', 'WH_TIME', 'TIME']:
+            logical_form.append(gram)
+    return logical_form
