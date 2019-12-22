@@ -4,7 +4,12 @@ def procedural_semantic(logical_form):
         if log[0] == 'WH':
             proc_sem.append(('PRINT-ALL', log[1]))
         elif log[0] == 'WH_TIME':
-            proc_sem.append(('FIND-ALL', 'RUN_TIME'))
+            proc_sem.append(('FIND-THE', 'RUN_TIME'))
+        elif log[0] == 'W_TIME':
+            if log[1] == 'đến':
+                proc_sem.append(('FIND-THE', 'ATIME'))
+            elif log[1] == 'từ':
+                proc_sem.append(('FIND-THE', 'DTIME'))
         elif log[0] == 'AGENT':
             if len(log) > 2:
                 proc_sem.append((log[1], log[2]))

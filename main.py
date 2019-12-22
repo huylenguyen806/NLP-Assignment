@@ -6,10 +6,11 @@ from models.loaddata import load_data
 from models.gramrel import grammarical_relation
 from models.logicalform import logical_form
 from models.proceduralsem import procedural_semantic
+from models.query import query, conduct_query
 
 
 def main():
-    _, queries = load_data()
+    data, queries = load_data()
     for q in queries:
         pos = create_pos(q)
         print("Query:")
@@ -30,6 +31,10 @@ def main():
         proc = procedural_semantic(loc)
         for i in proc:
             print(i)
+        print("Result: ")
+        q = query(proc)
+        print(q)
+        print(conduct_query(q, data))
 
 
 if __name__ == '__main__':

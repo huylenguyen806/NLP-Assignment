@@ -21,7 +21,7 @@ def logical_form(gram_rel):
                 logical_form.append(('THEME', gram[1], gram[2]))
             else:
                 logical_form.append(('THEME', gram[1]))
-        elif gram[0] in ['FROM', 'WH_TIME', 'ATIME', 'DTIME']:
+        elif gram[0] in ['FROM', 'WH_TIME', 'W_TIME', 'ATIME', 'DTIME']:
             if gram[0] == 'FROM':
                 dest.append(gram)
             logical_form.append(gram)

@@ -32,6 +32,9 @@ def grammarical_relation(alpha):
         elif dep[0] == 'wh_time':
             temp = ('WH_TIME', dep[2][0])
             temp1 = None
+        elif dep[0] == 'w_time':
+            temp = ('W_TIME', dep[2][0])
+            temp1 = None
         elif dep[0] == 'case':
             if dep[2][0] == 'từ':
                 temp = ('FROM', dep[1][0])

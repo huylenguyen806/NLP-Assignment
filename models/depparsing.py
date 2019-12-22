@@ -22,8 +22,13 @@ def postprocess_pos(pos):
         if pos[i][0].lower() == 'đến':
             pos[i] = (pos[i][0], 'V')
         if pos[i][0].lower() == 'lúc':
-            pos[i] = (pos[i][0] + '_' + pos[i+1][0], 'M')
-            del pos[i+1]
+            if pos[i+1][-1] == 'M':
+                pos[i] = (pos[i][0] + '_' + pos[i+1][0], 'M')
+                del pos[i+1]
+            else:
+                pos[i] = (pos[i][0] + '_' + pos[i+1][0] + '_' + pos[i+2][0], 'W_TIME')
+                del pos[i+2]
+                del pos[i+1]
         i += 1
 
     return pos
