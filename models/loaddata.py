@@ -8,9 +8,10 @@ dirname = os.path.dirname(os.path.abspath(__file__))
 
 data_path = quote.join([dirname, '..', 'input', 'data.csv'])
 queries_path = quote.join([dirname, '..', 'input', 'queries.txt'])
+output_path = quote.join([dirname, '..', 'output'])
 
 
-def load_data():
+def load_data(data_path, queries_path):
     with open(data_path, "r", encoding="utf-8") as d:
         data = d.read().splitlines()
         data = data[1:]

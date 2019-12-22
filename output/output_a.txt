@@ -1,0 +1,4 @@
+[('LSUBJ', 'Xe_buýt', ('WH', 'nào')), ('PRED', 'đến'), ('LSUBJ', 'Xe_buýt'), ('LOBJ', 'thành_phố', ('NAME', 'Huế')), ('ATIME', '20:00')]
+[('LSUBJ', 'xe_buýt', ('NAME', 'B3')), ('FROM', 'Đà_Nẵng'), ('LSUBJ', 'xe_buýt', ('NAME', 'Đà_Nẵng')), ('PRED', 'đến'), ('LSUBJ', 'xe_buýt'), ('WH_TIME', 'đến'), ('LOBJ', 'Huế')]
+[('LSUBJ', 'Xe_buýt', ('WH', 'nào')), ('PRED', 'đến'), ('LSUBJ', 'Xe_buýt'), ('LOBJ', 'thành_phố', ('NAME', 'Hồ_Chí_Minh'))]
+[('LSUBJ', 'Xe_buýt', ('NAME', 'B3')), ('PRED', 'đến'), ('LSUBJ', 'Xe_buýt'), ('LOBJ', 'Huế'), ('W_TIME', 'đến')]

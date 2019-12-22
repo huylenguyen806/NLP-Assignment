@@ -1,0 +1,4 @@
+[('WH', 'Xe_buýt'), ('AGENT', 'Xe_buýt'), ('đến',), ('THEME', 'thành_phố', ('NAME', 'Huế')), ('ATIME', '20:00')]
+[('AGENT', 'xe_buýt', ('NAME', 'B3')), ('FROM', 'Đà_Nẵng'), ('đến',), ('AGENT', 'xe_buýt'), ('WH_TIME', 'đến'), ('THEME', 'Huế')]
+[('WH', 'Xe_buýt'), ('AGENT', 'Xe_buýt'), ('đến',), ('THEME', 'thành_phố', ('NAME', 'Hồ_Chí_Minh'))]
+[('AGENT', 'Xe_buýt', ('NAME', 'B3')), ('đến',), ('AGENT', 'Xe_buýt'), ('THEME', 'Huế'), ('W_TIME', 'đến')]

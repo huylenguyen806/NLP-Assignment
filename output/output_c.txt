@@ -1,0 +1,4 @@
+[('PRINT-ALL', 'Xe_buýt'), ('Xe_buýt',), ('DEST', ('NAME', 'Huế')), ('ATIME', '20:00')]
+[('xe_buýt', ('NAME', 'B3')), ('SOURCE', 'Đà_Nẵng'), ('xe_buýt',), ('FIND-THE', 'RUN_TIME'), ('DEST', 'Huế')]
+[('PRINT-ALL', 'Xe_buýt'), ('Xe_buýt',), ('DEST', ('NAME', 'Hồ_Chí_Minh'))]
+[('Xe_buýt', ('NAME', 'B3')), ('Xe_buýt',), ('DEST', 'Huế'), ('FIND-THE', 'ATIME')]
